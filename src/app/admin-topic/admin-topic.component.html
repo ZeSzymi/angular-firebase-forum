@@ -1,0 +1,15 @@
+<div class="container" style="overflow-y:scroll;height:85%">
+    <div class="col-md-12" >
+      <h1 class="text-center py-1">Today Topics</h1>
+      <div class="list-group">
+          <a style="cursor: pointer; background-color: #2d3436;" class="list-group-item list-group-item-action my-2" *ngFor='let topic of topics; let i = index'>
+            <div class="row" style="color:white">
+                <div class="col-md-4"><img class="img-thumbnail" style="height: 100px;width: 200px" src="{{ topic.imagePath}}"></div>
+                <div class="col-md-2"><h3>{{ topic.name }}</h3></div>
+                <div class="col-md-5">{{ topic.content }}</div>
+                <div class="col-md-1"><button class="btn btn-danger">X</button></div>
+            </div>  
+          </a>
+        </div>
+    </div>
+  </div>

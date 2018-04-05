@@ -1,0 +1,7 @@
+<ng-template [ngIf]='authenticated'>
+    <button class="btn btn-dark mt-2" (click)='addCommentState()'>Add Comment</button>
+    <textarea class="form-control my-2" id="exampleTextarea" rows="3" *ngIf='addComment' #textArea></textarea>
+</ng-template>
+<ul class="list-group">
+    <li class="list-group-item list-group-item-dark my-1" *ngFor='let comment of comments'> {{ comment.content }} || {{ comment.user }}</li>
+</ul>
