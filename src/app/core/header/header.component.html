@@ -7,7 +7,6 @@
           <div class="collapse navbar-collapse">
               <div class="col-sm-6">
                   <ul class="navbar-nav mr-auto">
-                        <li class="nav-item"><a style='cursor:pointer' class="nav-link text-dark" >Admin Topics</a></li>
                       <li class="nav-item" *ngIf='isAuthenticated'><a style='cursor:pointer' class="nav-link text-dark" routerLinkActive='active' routerLink='/user' >Add Topic</a></li>
                     </ul>
               </div>
@@ -16,8 +15,6 @@
                         <li *ngIf='isAuthenticated' class="nav-item"><a style='cursor:pointer' class="nav-link text-dark" (click)='logOut()'>Log Out</a></li>
                         <li *ngIf='!isAuthenticated' class="nav-item" ><a style='cursor:pointer' class="nav-link text-dark" routerLinkActive='active' routerLink='/login'>Login</a></li>
                         <li *ngIf='!isAuthenticated' class="nav-item"><a style='cursor:pointer' class="nav-link text-dark" routerLinkActive='active' routerLink='/signin' >Sign in</a></li>
-                        <li *ngIf='!isAuthenticated' class="nav-item"><a style='cursor:pointer' class="nav-link text-dark">Auth0 Login</a></li>
-                        <li *ngIf='!isAuthenticated' class="nav-item"><a style='cursor:pointer' class="nav-link text-dark">Auth0 logOut</a></li>
                     </ul>
             </div>
           </div>

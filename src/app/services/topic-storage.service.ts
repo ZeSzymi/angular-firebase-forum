@@ -4,10 +4,11 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Subject } from 'rxjs/Subject';
 import { Comment } from '../forum/model/comment.model';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class TopicStorageService {
-    constructor(private http: Http, private authService: AuthService) {}
+    constructor(private http: Http, private authService: AuthService, private router: Router) {}
     getTopicsSubject: Subject<Topic[]> = new Subject<Topic[]>();
     getSpecificTopicSubject: Subject<Topic> = new Subject<Topic>();
     private topics: Topic[] = [/*
@@ -43,10 +44,11 @@ export class TopicStorageService {
         let topics: Topic[];
         this.http.get(this.linkGet).subscribe(
             (response: Response) => {
-                topics = response.json();
+                response.json() == null ? topics = [] : topics = response.json();
                 topics.push(topic);
-                console.log(topics);
-                this.http.put(this.linkPut + this.authService.getTokenId(), topics).subscribe();
+                this.http.put(this.linkPut + this.authService.getTokenId(), topics).subscribe(
+                    () => this.router.navigate(['/'])
+                );
             }
         );
     }

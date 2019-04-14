@@ -18,7 +18,7 @@ export class AuthService {
         firebase.auth().createUserWithEmailAndPassword(email, password).catch(
             (error) => { console.log(error); }
         ).then(
-            (success) => { this.router.navigate(['/']); }
+            (success) => { this.router.navigate(['/login']); }
         );
     }
 
